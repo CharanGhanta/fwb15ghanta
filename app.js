@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var iphoneRouter = require('./routes/iphone');
 
 var app = express();
 
@@ -19,6 +20,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.use('/iphone', iphoneRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
